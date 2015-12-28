@@ -1,0 +1,9 @@
+c:\users\j90\documents\visual studio 2013\Projects\DiningPhilosophersWaiter\DiningPhilosophersWaiter\bin\Debug\DiningPhilosophersWaiter.exe.config
+C:\Users\J90\documents\visual studio 2013\Projects\DiningPhilosophersWaiter\DiningPhilosophersWaiter\bin\Debug\DiningPhilosophersWaiter.exe
+C:\Users\J90\documents\visual studio 2013\Projects\DiningPhilosophersWaiter\DiningPhilosophersWaiter\bin\Debug\DiningPhilosophersWaiter.pdb
+C:\Users\J90\documents\visual studio 2013\Projects\DiningPhilosophersWaiter\DiningPhilosophersWaiter\obj\Debug\DiningPhilosophersWaiter.csprojResolveAssemblyReference.cache
+C:\Users\J90\documents\visual studio 2013\Projects\DiningPhilosophersWaiter\DiningPhilosophersWaiter\obj\Debug\DiningPhilosophersWaiter.exe
+C:\Users\J90\documents\visual studio 2013\Projects\DiningPhilosophersWaiter\DiningPhilosophersWaiter\obj\Debug\DiningPhilosophersWaiter.pdb
+C:\Users\J90\Documents\DesignPatterns\DiningPhilosophersWaiter\DiningPhilosophersWaiter\bin\Debug\DiningPhilosophersWaiter.exe.config
+C:\Users\J90\Documents\DesignPatterns\DiningPhilosophersWaiter\DiningPhilosophersWaiter\obj\Debug\DiningPhilosophersWaiter.exe
+C:\Users\J90\Documents\DesignPatterns\DiningPhilosophersWaiter\DiningPhilosophersWaiter\obj\Debug\DiningPhilosophersWaiter.pdb
