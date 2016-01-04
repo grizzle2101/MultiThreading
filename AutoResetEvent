@@ -1,0 +1,85 @@
+﻿using System;
+using System.Threading;
+using System.Collections.Generic;
+
+namespace lecture23
+{
+	public class MainClass
+	{
+		//Threads & Queue
+		private static List<Thread> consumers = new List<Thread> ();
+		private static Queue<Action> tasks = new Queue<Action>();
+
+		//Locks
+		private static readonly object lockObj = new object();
+		private static readonly object consoleLock = new object();
+
+		//Turnstile
+		private static AutoResetEvent newTaskAvailable = new AutoResetEvent(false);
+
+		//Add Task to Queue
+		private static void EnqueueTask(Action task)
+		{
+			lock(lockObj)
+			{
+				tasks.Enqueue (task);
+			}
+			newTaskAvailable.Set ();
+
+		}
+		private static void DoWork(ConsoleColor color)
+		{
+			while (true) 
+			{
+				//Take Task off the Queue
+				Action task = null;
+				lock (lockObj)
+				{
+					if (tasks.Count > 0) 
+					{
+						task = tasks.Dequeue ();
+					}
+				}
+				//If Task is a Task
+				if (task != null) {
+					lock (consoleLock) 
+					{
+						Console.ForegroundColor = color;
+					}
+					//Do the Work
+					task ();
+				} 
+				else 
+				{
+					//Pause for Orders
+					newTaskAvailable.WaitOne ();
+				}
+			}
+		}
+		public static void PrintStuff()
+		{
+			Random r = new Random ();
+			int number = r.Next ();
+			Console.WriteLine (number);
+		}
+		public static void Main (string [] args)
+		{
+			consumers.Add (new Thread (() => {DoWork(ConsoleColor.Red);}));
+			consumers.Add (new Thread (() => {DoWork(ConsoleColor.Green);}));
+			consumers.Add (new Thread (() => {DoWork(ConsoleColor.Blue);}));
+
+			consumers.ForEach ( (t) => {t.Start();});
+
+			while (true) 
+			{
+				Random r = new Random ();
+
+				EnqueueTask ( () => {
+					int number = r.Next(10);
+					Console.WriteLine(number);
+				});
+				Thread.Sleep (1000);
+			}
+		}
+	}
+}
